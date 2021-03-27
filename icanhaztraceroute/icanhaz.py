@@ -12,6 +12,8 @@ def find_remote_addr(req):
     """Determine the correct IP address of the requester."""
     if req.headers.get('CF-Connecting-IP'):
         return req.headers.get('CF-Connecting-IP')
+    if req.headers.get('X-Forwarded-For'):
+        return req.headers.get('X-Forwarded-For')
     return req.remote_addr
 
 def validate_ip(remote_addr):
