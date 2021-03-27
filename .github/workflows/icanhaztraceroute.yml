@@ -29,4 +29,4 @@ jobs:
         with:
           context: icanhaztraceroute/
           push: true
-          tags: user/app:latest
+          tags: icanhaz/icanhaztraceroute:latest
