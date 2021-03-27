@@ -6,9 +6,12 @@ on:
       - 'main'
 
 jobs:
-
-  icanhaztraceroute:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        icanhaz_site:
+          - "icanhaztraceroute"
     steps:
 
       - name: Checkout
@@ -27,6 +30,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: icanhaztraceroute/
+          context: ${{ matrix.icanhaz_site }}/
           push: true
-          tags: icanhaz/icanhaztraceroute:latest
+          tags: icanhaz/${{ matrix.icanhaz_site }}:latest
