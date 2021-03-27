@@ -36,7 +36,7 @@ def validate_ip(remote_addr):
 def run_traceroute(remote_addr):
     """Run traceroute and return the results."""
     tracecmd = shlex.split(
-        f"{traceroute_bin} -q 1 -w 1 {remote_addr}"
+        f"{traceroute_bin} -q 1 -f 1 -w 1 {remote_addr}"
     )
     result = subprocess.Popen(
         tracecmd,
