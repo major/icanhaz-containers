@@ -32,4 +32,4 @@ jobs:
         with:
           context: ${{ matrix.icanhaz_site }}/
           push: true
-          tags: icanhaz/${{ matrix.icanhaz_site }}:latest
+          tags: quay.io/icanhaz/${{ matrix.icanhaz_site }}:latest
