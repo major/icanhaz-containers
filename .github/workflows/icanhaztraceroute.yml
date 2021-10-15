@@ -52,12 +52,12 @@ jobs:
       - name: Tag container
         run: |
           podman tag ${{ matrix.container }}:latest \
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.container }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
 
       - name: Push to GitHub Container Repository
         id: push-to-ghcr
         uses: redhat-actions/push-to-registry@v2
         with:
           image: ${{ env.IMAGE_NAME }}
-          tags: ${{ matrix.container }}
+          tags: latest
           registry: ${{ env.REGISTRY }}
