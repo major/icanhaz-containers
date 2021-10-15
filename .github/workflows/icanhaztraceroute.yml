@@ -49,11 +49,6 @@ jobs:
           podman save ${{ matrix.container }} | sudo podman load
           sudo podman image list
 
-      - name: Test the container
-        run: ./test-container.sh
-        env:
-          CONTAINER_TO_TEST: ${{ matrix.container }}
-
       - name: Tag container
         run: |
           podman tag ${{ matrix.container }}:latest \
